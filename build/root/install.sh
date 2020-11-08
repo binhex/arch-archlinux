@@ -91,7 +91,7 @@ cat <<'EOF' > /tmp/menu_heredoc
     </item>
     <item label="Google Chrome">
     <action name="Execute">
-      <command>google-chrome --disable-dev-shm-usage</command>
+      <command>google-chrome-stable --disable-dev-shm-usage</command>
       <startupnotify>
         <enabled>yes</enabled>
       </startupnotify>
