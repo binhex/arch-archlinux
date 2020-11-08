@@ -113,6 +113,14 @@ cat <<'EOF' > /tmp/menu_heredoc
       </startupnotify>
     </action>
     </item>
+    <item label="Gimp">
+    <action name="Execute">
+      <command>gimp</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+    </item>
 
 EOF
 
