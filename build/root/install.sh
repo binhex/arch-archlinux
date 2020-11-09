@@ -120,7 +120,6 @@ cat <<'EOF' > /tmp/menu_heredoc
       </startupnotify>
     </action>
     </item>
-    </item>
     <item label="Nemo">
     <action name="Execute">
       <command>nemo</command>
@@ -129,7 +128,17 @@ cat <<'EOF' > /tmp/menu_heredoc
       </startupnotify>
     </action>
     </item>
-    </item>
+EOF
+
+# replace menu placeholder string with contents of file (here doc)
+sed -i '/<!-- APPLICATIONS_PLACEHOLDER -->/{
+    s/<!-- APPLICATIONS_PLACEHOLDER -->//g
+    r /tmp/menu_heredoc
+}' /home/nobody/.config/openbox/menu.xml
+rm /tmp/menu_heredoc
+
+
+cat <<'EOF' > /tmp/menu_heredoc
     <item label="Nitrogen">
     <action name="Execute">
       <command>nitrogen</command>
@@ -138,12 +147,11 @@ cat <<'EOF' > /tmp/menu_heredoc
       </startupnotify>
     </action>
     </item>
-
 EOF
 
 # replace menu placeholder string with contents of file (here doc)
-sed -i '/<!-- APPLICATIONS_PLACEHOLDER -->/{
-    s/<!-- APPLICATIONS_PLACEHOLDER -->//g
+sed -i '/<!-- UTILS_PLACEHOLDER -->/{
+    s/<!-- UTILS_PLACEHOLDER -->//g
     r /tmp/menu_heredoc
 }' /home/nobody/.config/openbox/menu.xml
 rm /tmp/menu_heredoc
