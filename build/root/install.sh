@@ -40,7 +40,7 @@ source upd.sh
 # define pacman packages
 # note gtk-doc needs to be included as its a requirement for github desktop,
 # but we put in a fix, thus install as a pre-req before the fix
-pacman_packages="git python2 python2-pip python2-packaging python3 python-pip python-packaging tk pycharm-community-edition nemo ttf-roboto gimp gtk-doc docker"
+pacman_packages="git python2 python2-pip python2-packaging python3 python-pip python-packaging tk pycharm-community-edition nemo ttf-roboto gimp gtk-doc docker nitrogen gsimplecal"
 
 # install compiled packages using pacman
 if [[ ! -z "${pacman_packages}" ]]; then
@@ -67,7 +67,6 @@ cp /home/nobody/novnc-16x16.png /usr/share/webapps/novnc/app/images/icons/
 
 cat <<'EOF' > /tmp/startcmd_heredoc
 # launch apps
-google-chrome --disable-dev-shm-usage
 EOF
 
 # replace startcmd placeholder string with contents of file (here doc)
@@ -116,6 +115,24 @@ cat <<'EOF' > /tmp/menu_heredoc
     <item label="Gimp">
     <action name="Execute">
       <command>gimp</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+    </item>
+    </item>
+    <item label="Nemo">
+    <action name="Execute">
+      <command>nemo</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+    </item>
+    </item>
+    <item label="Nitrogen">
+    <action name="Execute">
+      <command>nitrogen</command>
       <startupnotify>
         <enabled>yes</enabled>
       </startupnotify>
