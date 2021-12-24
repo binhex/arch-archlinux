@@ -33,7 +33,7 @@ source upd.sh
 # define pacman packages
 # note gtk-doc needs to be included as its a requirement for github desktop,
 # but we put in a fix, thus install as a pre-req before the fix
-pacman_packages="git python2 python2-pip python2-packaging python3 python-pip python-packaging tk pycharm-community-edition nemo ttf-roboto gimp gtk-doc docker nitrogen gsimplecal imwheel"
+pacman_packages="git python2 python2-packaging python3 python-pip python-packaging tk pycharm-community-edition nemo ttf-roboto gimp gtk-doc docker nitrogen gsimplecal imwheel"
 
 # install compiled packages using pacman
 if [[ ! -z "${pacman_packages}" ]]; then
