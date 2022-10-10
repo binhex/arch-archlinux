@@ -33,7 +33,7 @@ source upd.sh
 # define pacman packages
 # note gtk-doc needs to be included as its a requirement for github desktop,
 # but we put in a fix, thus install as a pre-req before the fix
-pacman_packages="git python2 python2-packaging python3 python-pip python-packaging tk pycharm-community-edition nemo ttf-roboto gimp gtk-doc docker nitrogen gsimplecal imwheel"
+pacman_packages="git python python-pip python-packaging tk pycharm-community-edition nemo ttf-roboto gimp gtk-doc docker nitrogen gsimplecal imwheel"
 
 # install compiled packages using pacman
 if [[ ! -z "${pacman_packages}" ]]; then
@@ -51,6 +51,17 @@ aur_packages="google-chrome visual-studio-code-bin github-desktop-bin ttf-ms-fon
 
 # call aur install script (arch user repo)
 source aur.sh
+
+# custom
+####
+
+package_name="python2.tar.zst"
+
+# download compiled python2 (removed from AOR)
+rcurl.sh -o "/tmp/${package_name}" "https://github.com/binhex/packages/raw/master/compiled/${OS_ARCH}/${package_name}"
+
+# install python2
+pacman -U "/tmp/${package_name}" --noconfirm
 
 # config novnc
 ###
